@@ -1,5 +1,13 @@
 const { Client, Pool } = require("pg");
-const uri = "postgres://postgres:99876653910g@localhost:5432/sql_injection";
+require('dotenv').config();
+
+const user = process.env.PG_USER;
+const host = process.env.PG_HOST;
+const password = process.env.PG_PASS;
+const port = process.env.PG_PORT;
+const database = process.env.PG_DB;
+
+const uri = `postgres://${user}:${password}@${host}:${port}/${database}`;
 
 const pool = new Pool({
   connectionString: uri,
