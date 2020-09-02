@@ -1,0 +1,51 @@
+html, body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #DFE8EE;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+input, button {
+  width: 600px;
+  border: 1px solid #ddd;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+input:first-child {
+  border-radius: 7px 7px 0 0;
+}
+
+button {
+  border-radius: 0 0 7px 7px;
+}
+
+input:nth-child(3):hover {
+  cursor: pointer;
+  background-color: #4A90E2;
+}
+
+.sucess {
+  color: #4A90E2;
+  font-size: 200px;
+  text-align: center;
+}
+
+.sucess {
+  color: tomato;
+  font-size: 200px;
+  text-align: center;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Injection Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <form class="loginForm" method="post" action="">
+      <input type="text" id="usuario" placeholder="usuario" />
+      <input type="text" id="senha" placeholder="senha" />
+      <button type="submit">login</button>
+    </form>
+
+    <script type="text/javascript">
+      var usuario, senha;
+
+      $(".loginForm").on("submit", function (event) {
+        event.preventDefault();
+
+        usuario = $(this).children("#usuario").val();
+        senha = $(this).children("#senha").val();
+
+        const body = { usuario, senha };
+
+        fetch("http://localhost:3000/login/", {
+          method: "post",
+          body: JSON.stringify(body),
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }).then((response)=>{
+          return response.json();
+        }).then((json)=>{
+          console.log(json);
+        })
+      });
+    </script>
+  </body>
+</html>
